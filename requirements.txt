@@ -1,9 +1,8 @@
 streamlit
 requests
 pandas
-base64
+cryptography
 hashlib
 hmac
-cryptography
 python-dotenv
 apify-client
