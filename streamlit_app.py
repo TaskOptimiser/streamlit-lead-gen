@@ -140,7 +140,7 @@ def show_login():
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
         
-        if st.button("Login"):
+        if st.button("Logout", key="logout_button"):
             if validate_password(username, password):
                 st.session_state.authenticated = True
                 st.session_state.current_user = username
@@ -577,7 +577,7 @@ def show_settings_tab():
             st.rerun()
         
         # Logout button
-        if st.button("Logout"):
+        if st.button("Logout", key="logout_button"):
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
             st.rerun()
