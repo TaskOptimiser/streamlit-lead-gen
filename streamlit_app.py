@@ -145,7 +145,7 @@ def show_login():
                 st.session_state.authenticated = True
                 st.session_state.current_user = username
                 st.session_state.encryption_key = st.session_state.users[username]["key"]
-                st.experimental_rerun()
+                st.rerun()
             else:
                 st.error("Invalid username or password")
     
@@ -394,7 +394,7 @@ def show_scraper_status_tab():
     
     if st.button("Clear Logs"):
         st.session_state.scraper_logs = deque(maxlen=100)
-        st.experimental_rerun()
+        st.rerun()
 
 def show_leads_email_tab():
     """Display scraped leads and email functionality"""
@@ -574,13 +574,13 @@ def show_settings_tab():
             st.session_state.scraped_leads = []
             st.session_state.email_sent_today = 0
             st.session_state.last_email_date = datetime.now().date()
-            st.experimental_rerun()
+            st.rerun()
         
         # Logout button
         if st.button("Logout"):
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
-            st.experimental_rerun()
+            st.rerun()
     
     with st.expander("About", expanded=True):
         st.markdown("""
@@ -614,7 +614,7 @@ def main():
         if st.sidebar.button("Logout"):
             for key in list(st.session_state.keys()):
                 del st.session_state[key]
-            st.experimental_rerun()
+            st.rerun()
         
         # Show main application
         show_app()
